@@ -1,9 +1,9 @@
-var cxPrincipal =document.querySelector("cx-principal")
-var cxPerguntas =document.querySelector("cx-perguntas")
-var cxAlternativas=document.querySelector("cxAlternativas") 
-var cxResultado =document.querySelector("cxResultados")
-var txResultado =document.querySelector("txResultado")
-var perguntas =[
+var cxPrincipal = document.querySelector(".cx-principal")
+var cxPerguntas = document.querySelector(".cx-perguntas")
+var cxAlternativas= document.querySelector(".cx-alternativas") 
+var cxResultado = document.querySelector(".cx-Resultados")
+var txResultado = document.querySelector(".tx-Resultado")
+var perguntas = [
 
 
     {
@@ -51,4 +51,12 @@ mostraPergunta();
 function mostraPergunta(){
     perguntaAtual = perguntas[posiçaoAtual];
     cxPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+function mostraAlternativas(){
+    for ( var alternativas of perguntaAtual.alternativas){
+        var botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativas;
+        cxAlternativas.appendChild(botaoAlternativas)
+    }
 }
